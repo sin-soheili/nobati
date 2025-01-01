@@ -1,0 +1,226 @@
+@font-face {
+  font-family: "pinar";
+  src: url("fonts/PINAR-BOLD.TTF") format("truetype");
+}
+
+* {
+  margin: 0;
+  font-family: "pinar", sans-serif;
+}
+
+html {
+  font-family: "pinar", sans-serif;
+}
+
+#winner {
+  color: white;
+  font-size: 100px; 
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0; 
+  position: fixed;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  will-change: opacity;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+ 
+#winner.open {
+  visibility: initial; 
+  opacity: 1;
+  transition: opacity 0.5s ease 1.5s, visibility 0.5s ease 1.5s;
+}
+
+#close {
+  height: 25px;
+  visibility: hidden;
+  opacity: 0; 
+  position: absolute;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  will-change: opacity;
+  top: 40px;
+  right: 40px;
+  z-index: 4;
+  cursor: pointer;
+}
+
+#close.open {
+  visibility: initial; 
+  opacity: 1;
+  transition: opacity 0.5s ease 2.5s, visibility 0.5s ease 2.5s;
+}
+
+#world {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  will-change: opacity, visibility;
+}
+
+#world.open {
+  visibility: initial; 
+  opacity: 1;
+  transition: opacity 1.5s ease, visibility 0.5s ease;
+}
+
+.background {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #6e45e1, #89d4cf);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.navWrapper {
+  width: 85%;
+  margin: auto;
+  padding-top: 3px;
+}
+
+.navWrapper a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 100px);
+  padding: 20px;
+}
+
+.namepicker {
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 400px;
+  animation: fadeIn 0.75s forwards 0s ease;
+}
+
+.namepicker p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.namepicker input {
+  width: 90%;
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  outline: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.namepicker input::placeholder {
+  color: #aaa;
+}
+
+.namepicker input:focus {
+  outline: none;
+}
+.namepicker a:hover {
+  background: linear-gradient(135deg, #6e45e1, #89d4cf);
+}
+.namepicker h2 {
+  color: #6E6E6E;
+  font-size: 48px;
+  font-weight: medium;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.namepicker a {
+  display: inline-block;
+  background: linear-gradient(135deg, #89d4cf, #6e45e1);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 15px 60px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: scale(0.5);
+    transform: skewY(25deg);
+    opacity: 0;
+    box-shadow: none;
+  }
+  100% {
+    transform: scale(1);
+    transform: skewY(0deg);
+    opacity: 1;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .namepicker {
+    width: 90%;
+    padding: 20px;
+  }
+
+  #winner {
+    font-size: 50px;
+  }
+
+  .navWrapper a {
+    font-size: 1.2rem;
+  }
+
+  .namepicker a {
+    padding: 10px 40px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .namepicker input {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .namepicker p {
+    font-size: 1rem;
+  }
+
+  .namepicker a {
+    padding: 8px 30px;
+    font-size: 0.9rem;
+  }
+
+  #winner {
+    font-size: 40px;
+  }
+}
